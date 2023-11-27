@@ -17,8 +17,8 @@ export default {
 
 <template>
     <div class="ms_container mt-4">
-        <AppLoader v-if="store.loading" />
-        <div class="row align-items-stretch gx-2 gy-2">
+        <AppLoader v-if="store.loading || store.cards.length < 20" />
+        <div  v-else class="row align-items-stretch gx-2 gy-2">
             <div class="col" v-for="card in store.cards" :key="card.id">
                 <AppCards :cards="card" />
 

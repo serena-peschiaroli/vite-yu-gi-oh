@@ -10,6 +10,7 @@ export default {
     axios.get(this.store.apiUrl).then((resp) => {
       this.store.cards = resp.data.data;
       this.store.loading = false;
+      console.log('Cards Data:', this.store.cards);
     });
   },
   data(){
