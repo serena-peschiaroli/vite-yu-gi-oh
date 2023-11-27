@@ -1,20 +1,23 @@
 <script>
 import { store } from '../store';
 import AppCards from './AppCards.vue';
+import AppLoader from './AppLoader.vue';
+
 
 export default {
-    components: { AppCards},
     data() {
         return {
             store
         };
-    }
+    },
+    components: { AppCards, AppLoader},
 };
 
 </script>
 
 <template>
-    <div class="ms_container">
+    <div class="ms_container mt-4">
+        <AppLoader v-if="store.loading" />
         <div class="row align-items-stretch gx-2 gy-2">
             <div class="col" v-for="card in store.cards" :key="card.id">
                 <AppCards :cards="card" />
@@ -33,4 +36,6 @@ export default {
     height: 100%;
     background-color: white;
 }
+
+
 </style>
