@@ -1,22 +1,25 @@
 <script>
 export default {
     props: {
-        card: Object,
+        cards: Object,
     }
 }
 </script>
 
 <template>
-    <div class="card" >
-        <div class="card-body">
-            <img :src=" card.card_images[2].image_url" alt=""/>
-            <h3 class="card-title"> {{ card.name }}</h3>
-            <p class="card-text"> {{ card.archetype }}</p>
+    <div class="card text-center mt-2" >
+        
+            <img :src="cards.card_images[0].image_url_small" alt=""/>
+            <p class="text-white"> {{ cards.name }}</p>
+            <p class="text-black"> {{ cards.archetype }}</p>
            
-        </div>
+        
     </div>
 
 </template>
 
 <style lang="scss" scoped>
+.card {
+    background-color: orange;
+}
 </style>
