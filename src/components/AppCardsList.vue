@@ -1,12 +1,17 @@
 <script>
-
+import { store } from '../store';
+import AppCards from './AppCards.vue';
+export default {
+    components: { AppCards},
+};
 
 </script>
 
 <template>
     <div class="ms_container">
         <div class="row">
-            <div class="col">
+            <div class="col" v-for="card in store.data" :key="card.id">
+                <AppCards :card="card" />
 
             </div>
         </div>
