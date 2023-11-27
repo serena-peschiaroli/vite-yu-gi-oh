@@ -1,12 +1,14 @@
 <script>
 
+
 </script>
 
 <template>
-    <div class="row">
-        <div class="col">
-            
+    <div class="ms_container">
+        <div class="row">
+            <div class="col">
 
+            </div>
         </div>
     </div>
 
