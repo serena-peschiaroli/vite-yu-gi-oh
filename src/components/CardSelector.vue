@@ -1,16 +1,10 @@
 <script>
+import { store } from "../store.js";
+
 export default {
-    // props per conteggio  carte
-    props : {
-        cardsCount : {
-            type: Number,
-            default: 0,
-        },
-        //prop per ricevere filtro 
-        currentFilter: {
-            type: String,
-            defaul: '',
-        },
+    props: {
+        cardsCount: Number,
+
     },
     data() {
         return {
@@ -25,24 +19,13 @@ export default {
             //notifica componente genitore sull'archetipo selezionato
             this.$emit("filter-change", this.selectedArchetype);
         },
-        //methods x gestire cambio nel filtro corrente 
-        methods: {
-            handleCurrentFilterChange(newfilter) {
-                //if conteggio solo se il filtro corrente coincide con l'archetipo
-                this.$emit("aggiorno il numero di carte", this.cardsCount);
-            }
-        },
-        //aggiungo un hook x chiamare il metodo quando il componente è creato
-        created() {
-            this.handleCurrentFilterChange(this.currentFilter);
-        },
 
     },
 };
 </script>
 
 <template>
-    <section class="d-flex justify-between">
+    <section class="d-flex">
 
         <div class="input-container">
             <label for="archetype">Select Archetype:</label>

@@ -1,5 +1,5 @@
 <script >
-import { store } from "./store.js";
+import { store } from "./store.js"
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppCardsList from "./components/AppCardsList.vue";
@@ -18,6 +18,7 @@ export default {
     return{
       store,
       selectedArchetype: '',
+      cardsCount: store.cardsCount,
     };
   },
   components: {
@@ -35,6 +36,8 @@ export default {
         this.store.cards = resp.data.data;
         this.store.loading = false;
         console.log ('Cards data: ', this.store.cards);
+        // aggiorna il conteggio delle carte
+        this.cardsCount = store.cards.length;
       });
     },
   },
@@ -45,7 +48,7 @@ export default {
 
 <template>
 <AppHeader />
-<CardSelector @filter-change="handleFilterChange" />
+<CardSelector @filter-change="handleFilterChange"  :cardsCount="cardsCount" />
 <AppCardsList />
   
 </template>
