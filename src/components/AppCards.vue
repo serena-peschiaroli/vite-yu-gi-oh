@@ -12,8 +12,7 @@ export default {
             <img :src="cards.card_images[0].image_url_small" alt=""/>
             <p class="text-white"> {{ cards.name }}</p>
             <p class="text-black"> 
-                <span v-if="cards.archetype">{{ cards.archetype }}</span>
-                <span v-else>{{ cards.type }}</span>
+                {{ cards.archetype ? cards.archetype : cards.type }}
             </p>
            
         
