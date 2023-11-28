@@ -8,11 +8,14 @@ export default {
 
     },
     methods: {
-        displayCards() {
-            //rimane vuoto perché il get viene effettuato il app.vue
-        }
-    }
-}
+    
+        emitFilterEvent() {
+            //notifica componente genitore sull'archetipo selezionato
+            this.$emit("filter-change", this.selectedArchetype);
+        },
+
+    },
+};
 </script>
 
 <template>
@@ -23,7 +26,7 @@ export default {
             {{ archetype }}
         </option>
     </select>
-    <button class="btn btn-primary" @click="displayCards"> Filtra </button>
+    <button class="btn btn-primary" @click="emitFilterEvent"> Filtra </button>
     </div>
 
 </template>
